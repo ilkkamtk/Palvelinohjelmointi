@@ -8,7 +8,7 @@
     * Queries do return object with await (or .then())
 ---
 
-# Connecting
+## Connecting
 
 For example as separated module (utils/db.ts):
 ```typescript
@@ -56,13 +56,15 @@ const port = process.env.PORT || 3000;
 * In case connection is lost, Mongoose automatically reconnects and executes all commands in buffer
 * Format for URL is: mongodb://[username:password@]host[:port][/databasename]
 
-__Task 2__
-* [Download starter files](https://github.com/ilkkamtk/SSSF_ts_mongo_starter)
-* Connect to the `sssf-labs` database
+## Task 1
+* [Download starter files](https://github.com/ilkkamtk/ts_mongo_starter)
+* Create a new GitHub repository and push the starter files there
+* Connect to the animal database in your MongoDB Atlas cluster
+
 
 ---
 
-# Schema
+## Schema
 
 * maps to a MongoDB collection and defines the shape of the documents
 
@@ -90,7 +92,7 @@ export default mongoose.model<SomeType>('Blog', blogSchema);
 ```
 ---
 
-# Schema types
+## Schema types
 
 * [Schema](http://mongoosejs.com/docs/guide.html) supports basic [types](http://mongoosejs.com/docs/schematypes.html):
     * String
@@ -109,35 +111,38 @@ export default mongoose.model<SomeType>('Blog', blogSchema);
     * and an option to create custom [validators](https://mongoosejs.com/docs/validation.html#custom-validators)
 
 ---
-# TypeScript support
+## TypeScript support
 * [Mongoose Docs](https://mongoosejs.com/docs/typescript.html)
 
 ---
 
-# Task 3
+## Task 2
 
-Modify existing interfaces (from last week) and then define schemas with following attributes:
+Create TypeScript types for 'Animal', 'Species' and 'Category' models. Then create mongoose schemas for them.
+
 
 Category
 * category_name (string, at least 2 characters long)
 
 Species
 * species_name (string, at least 2 characters long)
-* image (Url), hint: [mongoose-type-url](https://www.npmjs.com/package/mongoose-type-url)
+* image (Url), hint: [mongoose-type-url](https://www.npmjs.com/package/mongoose-type-url) or string
 * category (id of the category)
-* location (array of [geoJson points](https://mongoosejs.com/docs/geojson.html))
-    * idea of this is to save the locations where the species can be found
+* location ([geoJson point](https://mongoosejs.com/docs/geojson.html))
+    * idea of this is to save the location where the species can be found
 
 Animal
-* name (string, at least 2 characters long)
+* animal_name (string, at least 2 characters long)
 * birthdate (Date, is in the past (maximum is `Date.now`))
     * Check ES6 [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
-* gender (string, male or female)
+    * Should prevent future dates
 * species (id of the species)
+* location ([geoJson point](https://mongoosejs.com/docs/geojson.html))
+    * idea of this is to save the location where the animal is found
 
 ---
 
-# Model
+## Model
 
 * To use the schema, we need to create a model associated with it:
 
@@ -150,7 +155,7 @@ export default mongoose.model('Blog', blogSchema);
 
 ---
 
-# CRUD
+## CRUD
 
 * To create a new document, call the [model](http://mongoosejs.com/docs/models.html) `create` or `save` methods
 * To modify existing documents, call the `updateOne` method and the `remove` or `deleteOne` to delete
@@ -204,7 +209,7 @@ app.use('/blog', blogRoute);
 ```
 ---
 
-# Task 4
+## Task 3
 
 * Expose your models through controller + router:
 * Create endpoints `categories`, `species` and `animals`
@@ -213,22 +218,22 @@ app.use('/blog', blogRoute);
     * On `GET /:id`, find the category, species or animal by id.
     * On `PUT /:id` update the category, species or animal
     * On `DELETE /:id`, delete the category, species or animal.
-    * Respond to `GET /species/location` with species located in a area specified by area. E.g  `GET /species/location?topRight=58.05,17.22&lowLeft=49.10,10.32` will return species inside Europe.
-        * [Here is a function](https://gist.github.com/ilkkamtk/6f31488eb36868fd2d787eeebfa78729) to covert corners of a rectangle to [geoJSON Polygon](http://thecodebarbarian.com/a-practical-introduction-to-geojson-with-node-js.html#polygons)
+    * Respond to `GET /species/location` with an array of species located in a area specified by area. E.g  `GET /species/location?topRight=58.05,17.22&lowLeft=49.10,10.32` will return species inside Europe.
+        * use `/species/location` endpoint and `?topRight=lat,lon&lowLeft=lat,lon` to specify the area. If you use other endpoint and/or query parameters, the test will fail.
+    * Do the same location query also for animals.
 * Test with postman.
-* Create unit tests.
 
 
 ---
 
 # Instance methods
 
-* Models have some built-in instance methods
+* Models have built-in instance methods like `save`, `remove`, `update`, `validate` etc.
 * Models can also have custom [instance methods](http://mongoosejs.com/docs/guide.html#methods):
 
 ```javascript
 // Do not declare methods using ES6 arrow functions (=>).
-// Arrow functions explicitly prevent binding this
+// Arrow functions explicitly prevent binding this-keyword
 blogSchema.methods.findFromSameDate = function(cb) {
   return this.model('Blog').find({ date: this.date }, cb);
 };
@@ -270,6 +275,29 @@ try {
   console.error('query failed', err);
 }
 ```
+
+---
+
+## Task 4
+
+* Add a static method tht 'Animal' model to find all animals of certain species: `bySpecies(species: string): Promise<Animal[]>`
+   * The endpoint should be `GET /animals/species/:species`
+* Add a query helper to 'Species' model to find all species within a certain area specified by a geoJson polygon: `byLocation(polygon: Polygon): Promise<Species[]>` 
+   * The endpoint should be `POST /species/area` and the body should contain the geoJson polygon in the following format:
+   ```json
+   {
+     "type": "Polygon",
+     "coordinates": [
+       [
+         [100.0, 0.0], [101.0, 0.0], [101.0, 1.0],
+         [100.0, 1.0], [100.0, 0.0]
+       ]
+     ]
+   }
+   ```
+* When ready, run `npm run test` to test your endpoints.
+* Add a screenshot of test results to the README.md file in your repository. Submit the repository link to Oma.
+
 
 ---
 
