@@ -13,14 +13,14 @@
 - [Socket.io](week3/socket.md)
 
 ### Week 4
-- Microsevices
+- [Microsevices](week4/microservices.md)
 - AI
 
 ### Week 5
-- Microfrontends
+- [Microfrontends](week5/microfrontends.md)
 
 ### Week 6 - 8
-- Go / Java Spring Boot
+- [Go / Java Spring Boot assignment](week6/go-spring.md)
 
 
 
