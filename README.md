@@ -7,25 +7,19 @@
 - [REST API + Mongoose](week1/mongoose.md)
 
 
-### Week 3 (3)
-- Socket
-- 2FA
-- Passkey authentication
+### Week 3
+- [MFA](week3/mfa.md)
+- [Passkey authentication](week3/passkey.md)
+- [Socket.io](week3/socket.md)
 
-### Week 4 (3)
+### Week 4
 - Microsevices
 - AI
 
-### Week 5 (2)
+### Week 5
 - Microfrontends
 
-### Week 6 (1)
-- Go / Java Spring Boot
-
-### Week 7 (1)
-- Go / Java Spring Boot
-
-### Week 8 (1)
+### Week 6 - 8
 - Go / Java Spring Boot
 
 
