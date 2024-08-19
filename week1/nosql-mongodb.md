@@ -95,6 +95,26 @@
 
 ---
 
+## MariaDB vs MongoDB
+
+| **Criteria**                   | **MariaDB (Relational Database)**                            | **MongoDB (NoSQL Database)**                             |
+|--------------------------------|-------------------------------------------------------------|----------------------------------------------------------|
+| **Data Type**                  | Organized in tables (like spreadsheets).                    | Organized in flexible documents (like folders of files). |
+| **Best For**                   | Structured, consistent data (e.g., customer databases).     | Flexible, changing data (e.g., social media posts).      |
+| **Schema**                     | Fixed structure; data must fit into predefined tables.      | Flexible structure; data can vary from entry to entry.   |
+| **Scalability**                | Grows by adding power to a single server.                   | Grows by adding more servers.                            |
+| **Speed**                      | Fast for complex queries and transactions.                  | Fast for large volumes of simple data.                   |
+| **Relationships**              | Great for connected data (e.g., sales and customers).       | Better for isolated or loosely connected data.           |
+| **Examples**                   | Banking systems, inventory management.                     | Real-time analytics, content management systems.         |
+| **Development**                | Requires careful planning; changes can be difficult.        | Easy to adapt; changes are simple to make.               |
+
+- **Use MariaDB** when your data is structured, consistent, and requires complex operations (like finance or inventory systems).
+- **Use MongoDB** when your data is flexible, unstructured, and grows rapidly (like social media or big data applications).
+
+---
+
+
+
 ### Assignment 1
 * [Create a free MongoDB Atlas cluster](https://youtu.be/YfyKoMNavs4) (or scroll down to the end of this page)
 * [Install MongoDB Database tools (mongodump, mongorestore, mongoexport, mongoimport)](https://www.mongodb.com/docs/database-tools/installation/installation/)

@@ -116,6 +116,28 @@ export default mongoose.model<SomeType>('Blog', blogSchema);
 
 ---
 
+### Understanding the Differences of Relational Schemas and Mongoose Schema
+
+1. **Schema Flexibility:**
+   - **Relational Databases (e.g., MariaDB):** The schema is rigid and enforced at the database level. Every row in a table must follow the predefined schema (e.g., all rows must have the same columns with specified data types). Changing the schema (e.g., adding a new column) typically requires altering the table, which can be time-consuming.
+   - **MongoDB:** MongoDB’s schema is flexible by default. Documents in a collection can have different structures, meaning not all documents need to have the same fields. When using Mongoose, you define a schema in your application code, but this is more about consistency and validation than a strict requirement. The database itself doesn’t enforce the schema.
+
+2. **Enforcement Location:**
+   - **Relational Databases:** The schema is enforced by the database engine, meaning the structure is rigid, and the database will reject any data that doesn’t match.
+   - **MongoDB (with Mongoose):** The schema is enforced by the application (through Mongoose). This means the flexibility of MongoDB is still present, but you choose to impose structure for your application’s benefit.
+
+3. **Purpose of Using a Schema in MongoDB:**
+   - Using a schema in MongoDB through Mongoose helps bring some order and consistency to your data. It allows you to enforce certain data structures and validation rules, which can be useful when building applications with more predictable data needs.
+   - However, the flexibility remains because you can easily modify or extend the schema without needing to perform complex database migrations.
+
+### **Does This Take Away the Idea of MongoDB?**
+
+No, using a schema in MongoDB doesn’t take away the idea of MongoDB; it complements it. MongoDB’s core strength is its flexibility. Mongoose allows you to add structure when needed while retaining the ability to handle unstructured data. This hybrid approach makes MongoDB versatile, capable of handling both structured and unstructured data efficiently.
+
+In summary, Mongoose doesn’t eliminate MongoDB’s flexibility but enhances it by allowing you to impose structure when your application requires it. This combination gives you the best of both worlds—flexibility when you need it and structure when you want it.
+
+---
+
 ## Task 2
 
 Create TypeScript types for 'Animal', 'Species' and 'Category' models. Then create mongoose schemas for them.
