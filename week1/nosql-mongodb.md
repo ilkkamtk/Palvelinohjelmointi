@@ -117,7 +117,7 @@
 
 ### Assignment 1
 * [Create a free MongoDB Atlas cluster](https://youtu.be/YfyKoMNavs4) (or scroll down to the end of this page)
-* [Install MongoDB Database tools (mongodump, mongorestore, mongoexport, mongoimport)](https://www.mongodb.com/docs/database-tools/installation/installation/)
+* [Install MongoDB Database tools (mongodump, mongorestore, mongoexport, mongoimport)](https://www.mongodb.com/docs/database-tools/installation/installation/). Download the tools [from here](https://www.mongodb.com/try/download/database-tools).
 * Restore [this database](mongodump.zip) using `mongorestore` command: `mongorestore --uri mongodb+srv://<USERNAME>:<PASSWORD>@<HOST>`
 * Browse the restored database in MongoDB Atlas
 * Database has three collections: `categories`, `species`, and `animals`
