@@ -152,7 +152,7 @@
 1. Find all species in the following box (approx. Africa). Use the following coordinates:
    ```javascript
    [-26.484784820398147, -33.21557838270862], // Bottom left corner (Longitude, Latitude)
-   [-26.484784820398147, -33.21557838270862]  // Upper right corner (Longitude, Latitude)
+   [50.265511387965944, 32.1716316994946]  // Upper right corner (Longitude, Latitude)
     ```
 2. Find all animals in 100km range from Helsinki. Use the following coordinates:
    ```javascript
