@@ -138,8 +138,9 @@
 ---
 
 ### Assignment 2
-* Install [MongoDB Shell](https://docs.mongodb.com/mongodb-shell/) and connect to your MongoDB Atlas cluster: `mongosh "mongodb+srv://<HOST>/" --apiVersion 1 --username <username>`
+* Install [MongoDB Shell](https://docs.mongodb.com/mongodb-shell/) and connect to your MongoDB Atlas cluster: `mongosh "mongodb+srv://<HOST>" --apiVersion 1 --username <username>`
 * [Basic commands](https://www.mongodb.com/docs/mongodb-shell/run-commands/)
+* Select database `use palvelinohjelmointi`, show all databases: `show dbs`
 * [Perform CRUD operations](https://www.mongodb.com/docs/mongodb-shell/crud/)
 1. Select all documents from the `species` collection
 2. Select all documents from the `animals` collection
