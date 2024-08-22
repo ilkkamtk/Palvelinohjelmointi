@@ -57,8 +57,8 @@ const port = process.env.PORT || 3000;
 * Format for URL is: mongodb://[username:password@]host[:port][/databasename]
 
 ## Task 1
-* [Download starter files](https://github.com/ilkkamtk/ts_mongo_starter)
-* Create a new GitHub repository and push the starter files there
+* Use [this template](https://github.com/ilkkamtk/ts_mongo_starter) to create a new GitHub repository 'mongoose-animals'
+* Clone the repository to your computer
 * Connect to the animal database in your MongoDB Atlas cluster
 
 
@@ -144,23 +144,23 @@ Create TypeScript types for 'Animal', 'Species' and 'Category' models. Then crea
 
 
 Category
-* category_name (string, at least 2 characters long)
+* category_name (string, at least 2 characters long, unique, required)
 
 Species
-* species_name (string, at least 2 characters long)
-* image (Url), hint: [mongoose-type-url](https://www.npmjs.com/package/mongoose-type-url) or string
-* category (id of the category)
-* location ([geoJson point](https://mongoosejs.com/docs/geojson.html))
+* species_name (string, at least 2 characters long, unique, required)
+* image (Url, required), hint: [mongoose-type-url](https://www.npmjs.com/package/mongoose-type-url) or string
+* category ([ObjectId](https://mongoosejs.com/docs/api/schema.html#Schema.Types), required)
+* location ([geoJson point](https://mongoosejs.com/docs/geojson.html), required)
     * idea of this is to save the location where the species can be found
+    * type: enum, value should be 'Point', required
+    * coordinates: array of two numbers, required
 
 Animal
-* animal_name (string, at least 2 characters long)
-* birthdate (Date, is in the past (maximum is `Date.now`))
-    * Check ES6 [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
-    * Should prevent future dates
-* species (id of the species)
-* location ([geoJson point](https://mongoosejs.com/docs/geojson.html))
-    * idea of this is to save the location where the animal is found
+* animal_name (string, at least 2 characters long, required)
+* birthdate (Date, required)
+    * Should prevent future dates, check ES6 [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+* species (ObjectId, required)
+* location (geoJson point, required)
 
 ---
 
@@ -240,8 +240,8 @@ app.use('/blog', blogRoute);
     * On `GET /:id`, find the category, species or animal by id.
     * On `PUT /:id` update the category, species or animal
     * On `DELETE /:id`, delete the category, species or animal.
-    * Respond to `GET /species/location` with an array of species located in a area specified by area. E.g  `GET /species/location?topRight=58.05,17.22&lowLeft=49.10,10.32` will return species inside Europe.
-        * use `/species/location` endpoint and `?topRight=lat,lon&lowLeft=lat,lon` to specify the area. If you use other endpoint and/or query parameters, the test will fail.
+    * Respond to `GET /species/location` with an array of species located in a box. E.g.  `GET /species/location?topRight=52.82,71.09&bottomLeft=-11.62,34.86` will return species inside Europe.
+        * use `/species/location` endpoint and `?topRight=lat,lon&bottomLeft=lat,lon` to specify the area. If you use other endpoint and/or query parameters, the test will fail.
     * Do the same location query also for animals.
 * Test with postman.
 
@@ -298,13 +298,31 @@ try {
 }
 ```
 
+### Typing Static Methods
+
+```typescript
+// in type definition file
+
+type SomeModel = Model<SomeType> & {
+  functionName(parameter: type): Promise<SomeType[]>;
+  anotherFunction(parameter: type): Promise<SomeType>;
+  etc...
+};
+```
+
+```typescript
+// in model file
+
+export default model<SomeType, SomeModel>('CollectionName', someSchema);
+
+```
 ---
 
 ## Task 4
 
-* Add a static method tht 'Animal' model to find all animals of certain species: `bySpecies(species: string): Promise<Animal[]>`
+* Add a static method to 'Animal' model to find all animals of certain species: `findBySpecies(species: string): Promise<Animal[]>`
    * The endpoint should be `GET /animals/species/:species`
-* Add a query helper to 'Species' model to find all species within a certain area specified by a geoJson polygon: `byLocation(polygon: Polygon): Promise<Species[]>` 
+* Add a static method to 'Species' model to find all species within a certain area specified by a geoJson polygon: `findByArea(polygon: Polygon): Promise<Species[]>` 
    * The endpoint should be `POST /species/area` and the body should contain the geoJson polygon in the following format:
    ```json
    {
