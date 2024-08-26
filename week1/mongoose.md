@@ -240,9 +240,8 @@ app.use('/blog', blogRoute);
     * On `GET /:id`, find the category, species or animal by id.
     * On `PUT /:id` update the category, species or animal
     * On `DELETE /:id`, delete the category, species or animal.
-    * Respond to `GET /species/location` with an array of species located in a box. E.g.  `GET /species/location?topRight=52.82,71.09&bottomLeft=-11.62,34.86` will return species inside Europe.
-        * use `/species/location` endpoint and `?topRight=lat,lon&bottomLeft=lat,lon` to specify the area. If you use other endpoint and/or query parameters, the test will fail.
-    * Do the same location query also for animals.
+    * Respond to `GET /animals/location` with an array of animals located in a box. E.g.  `GET /animals/location?topRight=52.82,71.09&bottomLeft=-11.62,34.86` will return animals inside Europe.
+        * use `/animals/location` endpoint and `?topRight=lat,lon&bottomLeft=lat,lon` to specify the area. If you use other endpoint and/or query parameters, the test will fail.
 * Test with postman.
 
 
@@ -335,9 +334,69 @@ export default model<SomeType, SomeModel>('CollectionName', someSchema);
      ]
    }
    ```
-* When ready, run `npm run test` to test your endpoints.
-* Add a screenshot of test results to the README.md file in your repository. Submit the repository link to Oma.
+* Test with postman.
 
+## Selecting and Populating
+
+* [Select](https://www.educative.io/answers/what-is-select-in-mongoose) which fields to include or exclude from the query result:
+
+```javascript
+const query = Blog.find().select('title date');
+```
+* The result will only include the title and date fields
+
+
+* [Populate](http://mongoosejs.com/docs/populate.html) to replace the specified path in the document with document(s) from other collection(s):
+
+```javascript
+const query = Blog.find().populate('author');
+```
+* Example result would be:
+```json
+{
+  title: 'My title',
+  date: '2021-01-01',
+  author: {
+    name: 'John Doe' // author is an object from the 'User' collection
+  }
+}
+```
+
+### Nested population
+
+* Populate can be used to populate nested fields:
+
+```javascript
+const query = Blog.find().populate({
+  path: 'author',
+    populate: { path: 'friends' }
+});
+```
+* Example result would be:
+```json
+{
+  title: 'My title',
+  date: '2021-01-01',
+  author: {
+    name: 'John Doe',
+    friends: [
+      { name: 'Jane Doe' },
+      { name: 'Alice' }
+    ]
+  }
+}
+```
+
+---
+
+## Task 5
+
+* When sending a GET request to `/animals`, `/animals/:id/`, `/animals/location` and `/animals/species/:species` include the species and category data in the response. Remove all `__v` fields from the response.
+* With `/animals/species/:species` endpoint, you have to add aggregation to get the species and category data. Create the aggregation first in MongoDB Shell and then use it in your code.
+* Download [this ZIP](test.zip) and add the 'tests' folder to your project. 
+* When ready, run `npm run test` to test your endpoints.
+    * When running the tests, you might want to change the database to `po-test` in the .env file to prevent data loss and to have a clean database for testing. You can also delete the `po-test` database periodically to have a clean database.
+* Add a screenshot of test results to the README.md file in your repository. Submit the repository link to Oma.
 
 ---
 
