@@ -153,7 +153,7 @@ Species
 * location ([geoJson point](https://mongoosejs.com/docs/geojson.html), required)
     * idea of this is to save the location where the species can be found
     * type: enum, value should be 'Point', required
-    * coordinates: array of two numbers, required
+    * coordinates: array of two numbers, required, index: 2dsphere
 
 Animal
 * animal_name (string, at least 2 characters long, required)
