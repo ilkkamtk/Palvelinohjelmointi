@@ -200,9 +200,6 @@
       }
     },
     {
-      $unwind: '$category'
-    },
-    {
       $project: {
         _id: 1,
         species_name: 1,
@@ -215,8 +212,7 @@
 
 ## Assignment 3
 * Select all cats from the `animals` collection and populate the `species` field to show also the species data. Use the following [stages](https://www.mongodb.com/docs/manual/reference/operator/aggregation-pipeline/):
-   * Use `$lookup` to perform left outer join between the animals collection and the species collection. 
-   * Populate `species` field with the data from `species` collection ($unwind).
+   * Use `$lookup` to perform left outer join between the animals collection and the species collection and to populate `species` field with the data from `species` collection.
    * Use `$match` stage to filter the documents to include only those where `species_info.species_name` is "Cat".
    * Show all data from `animals` including the species data ($project).
 ---
