@@ -135,7 +135,7 @@ second factor.
     - The client uses the JWT token for subsequent authenticated requests.
 
 Use the existing Auth API from previous course and implement Multi-Factor Authentication (MFA) using a time-based
-one-time password (TOTP) as the second factor. URL for the existing Auth API: https://media2.metropolia.fi/auth-api/ (
+one-time password (TOTP) as the second factor. URL for the existing Auth API: https://media2.edu.metropolia.fi/auth-api/ (
 VPN required at home)
 
 `otpauth` [library](https://www.npmjs.com/package/otpauth) is One Time Password (HOTP/TOTP) library for Node.js, Deno,
