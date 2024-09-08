@@ -8,7 +8,7 @@ Monolithic applications are built as a single unit, with all the components tigh
 4. They are **independently deployable**, typically with automated deployment pipelines.
 5. The **benefits** of this approach include better fault isolation, easier testing, and greater flexibility.
 6. The **challenges** include managing the increased complexity and requiring advanced tools for monitoring and management.
- 
+
 
 ## Components of Microservices
 
@@ -155,41 +155,41 @@ In this configuration:
 Create an API gateway using Apache, which will route requests to three different APIs: Two APIs can be any public REST APIs available on the internet or private APIs that you have created and are available on server/cloud. Use OpenWeatherMap as the third API since it requires an API key.
 
 1. Order a new Virtual Machine from https://ecloud.metropolia.fi/.
-   - RockyLinux 9 LAMP template.
+    - RockyLinux 9 LAMP template.
 2. Log in to the VM via SSH.
 3. Open the Apache configuration file and Define the API Gateway Configuration.
-   - `sudo nano /etc/httpd/conf.d/api-gateway.conf`
-   - example:
-     ```apache
-     <VirtualHost *:80>
-         ServerName get-this-from-email
-         # SSL Proxy Support
-         SSLProxyEngine On
-        
-         # API no 1
-         ProxyPass /api1 http://api1.example.com
-         ProxyPassReverse /api1 http://api1.example.com
-            
-         # API no 2
-         ProxyPass /api2 http://api2.example.com
-         ProxyPassReverse /api2 http://api2.example.com
-     
-         # Adding api key to a request
-         RewriteEngine On
-         RewriteCond %{QUERY_STRING} !(^|&)appid=(&|$)
-         RewriteRule "^/weather" "https://api.openweathermap.org/data/2.5/weather?%{QUERY_STRING}&appid=7c42463f9762df30e2f0f703a1115cd8" [P]
-         ProxyPassReverse "/weather" "https://api.openweathermap.org/2.5/weather"
-     </VirtualHost>
-     ```
+    - `sudo nano /etc/httpd/conf.d/api-gateway.conf`
+    - example:
+      ```apache
+      <VirtualHost *:80>
+          ServerName get-this-from-email
+          # SSL Proxy Support
+          SSLProxyEngine On
+         
+          # API no 1
+          ProxyPass /api1 http://api1.example.com
+          ProxyPassReverse /api1 http://api1.example.com
+             
+          # API no 2
+          ProxyPass /api2 http://api2.example.com
+          ProxyPassReverse /api2 http://api2.example.com
+      
+          # Adding api key to a request
+          RewriteEngine On
+          RewriteCond %{QUERY_STRING} !(^|&)appid=(&|$)
+          RewriteRule "^/weather" "https://api.openweathermap.org/data/2.5/weather?%{QUERY_STRING}&appid=7c42463f9762df30e2f0f703a1115cd8" [P]
+          ProxyPassReverse "/weather" "https://api.openweathermap.org/2.5/weather"
+      </VirtualHost>
+      ```
 4. Test Apache configuration.
-   - `sudo httpd -t`
-   - `sudo apachectl configtest`
+    - `sudo httpd -t`
+    - `sudo apachectl configtest`
 5. Restart Apache.
-   - `sudo systemctl restart httpd`
+    - `sudo systemctl restart httpd`
 6. Test the API Gateway with Postman or a web browser.
-   - `http://your-server-ip/api1`
-   - `http://your-server-ip/api2`
-   - `http://your-server-ip/weather?q=Somero`
+    - `http://your-server-ip/api1`
+    - `http://your-server-ip/api2`
+    - `http://your-server-ip/weather?q=Somero`
 
 ## Assignment 2: API Gateway with Nginx
 
@@ -224,12 +224,12 @@ Create the same API Gateway using Nginx instead of Apache. Follow the same steps
 4. Test Nginx configuration.
     - `sudo nginx -t`
 5. Restart Nginx.
-   - `sudo systemctl restart nginx`
+    - `sudo systemctl restart nginx`
 6. Test the API Gateway with Postman or a web browser.
-   - `http://your-server-ip/api1`
-   - `http://your-server-ip/api2`
-   - `http://your-server-ip/weather?q=Somero`
-   
+    - `http://your-server-ip/api1`
+    - `http://your-server-ip/api2`
+    - `http://your-server-ip/weather?q=Somero`
+
 ## Assignment 3: API Gateway with Node.js
 
 Create the same API Gateway using Node.js. Follow the same steps as in the Apache and Nginx assignments, but use Node.js and Express to create the API Gateway.
@@ -238,10 +238,10 @@ You can use [this repo](https://github.com/ilkkamtk/ts_mongo_starter) as a start
 
 1. [http-proxy-middleware](https://www.npmjs.com/package/http-proxy-middleware)
 
-   - The `http-proxy-middleware` library is used to create a proxy server that forwards requests from your application to another server. It provides features such as request forwarding, path rewriting, header manipulation, and HTTPS support.
+    - The `http-proxy-middleware` library is used to create a proxy server that forwards requests from your application to another server. It provides features such as request forwarding, path rewriting, header manipulation, and HTTPS support.
 
 2. Install http-proxy-middleware and import necessary modules.
-    
+
     ```ts
     import 'dotenv/config';
     import express, { NextFunction, Request, Response } from 'express';
@@ -313,11 +313,11 @@ You can use [this repo](https://github.com/ilkkamtk/ts_mongo_starter) as a start
     });
     ```
 
-   - For each microservice, sets up proxy middleware using `createProxyMiddleware`.
-   - `target`: The dummy URL to which requests should be proxied.
-   - `changeOrigin`: Ensures the `Host` header matches the target URL.
-   - `pathRewrite`: Rewrites the URL path by removing the base route (`route`) before forwarding.
-   - `secure`: Enables SSL verification based on the environment.
+    - For each microservice, sets up proxy middleware using `createProxyMiddleware`.
+    - `target`: The dummy URL to which requests should be proxied.
+    - `changeOrigin`: Ensures the `Host` header matches the target URL.
+    - `pathRewrite`: Rewrites the URL path by removing the base route (`route`) before forwarding.
+    - `secure`: Enables SSL verification based on the environment.
 
 7. Define and Start the Server
 
@@ -328,3 +328,4 @@ You can use [this repo](https://github.com/ilkkamtk/ts_mongo_starter) as a start
       console.log(`Gateway is running on port ${PORT}`);
     });
     ```
+8. Run the Node.js application and test the API Gateway with Postman or a web browser.
