@@ -249,7 +249,7 @@ You can use [this repo](https://github.com/ilkkamtk/ts_mongo_starter) as a start
     import helmet from 'helmet';
     import morgan from 'morgan';
     import { createProxyMiddleware } from 'http-proxy-middleware';
-    import http from 'http';
+    import {ClientRequest} from 'http';
     ```
 
 3. Initialize the Express Application
@@ -283,12 +283,10 @@ You can use [this repo](https://github.com/ilkkamtk/ts_mongo_starter) as a start
         route: '/api3',
         target: 'https://dummy.example.com/api3',
          // Add additional proxy options for this service
-         options: {
-           onProxyReq: (proxyReq, req, res) => {
+         on: {
+           onProxyReq: (proxyReq: ClientRequest) => {
            // Append apikey query parameter to the target URL
-           const url = new URL(proxyReq.url!, proxyReq.headers.host as string);
-           url.searchParams.set('apikey', 'your-api-key-here'); // Replace with your actual API key
-           proxyReq.path = url.toString().replace(proxyReq.headers.host as string, '');
+           proxyReq.path += '&appid=your_api_key';
           },
         },
       },
@@ -298,8 +296,9 @@ You can use [this repo](https://github.com/ilkkamtk/ts_mongo_starter) as a start
 6. Set Up Proxy Middleware for Each Microservice
 
     ```ts
-    services.forEach(({ route, target }) => {
+    services.forEach(({ route, target, on }) => {
       const proxyOptions = {
+        on,
         target,
         changeOrigin: true,
         pathRewrite: {
