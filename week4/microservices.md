@@ -200,6 +200,7 @@ Create the same API Gateway using Nginx instead of Apache. Follow the same steps
 2. Log in to the VM via SSH.
     - [Install Nginx.](https://docs.rockylinux.org/guides/web/nginx-mainline/)
     - Follow the instructions until you get the welcome page.
+    - Run `sudo setsebool -P httpd_can_network_connect 1` to allow Nginx to connect to the network.
 3. Open the Nginx configuration file and Define the API Gateway Configuration.
     - `sudo nano /etc/nginx/conf.d/api-gateway.conf`
     - example:
@@ -207,9 +208,17 @@ Create the same API Gateway using Nginx instead of Apache. Follow the same steps
       server {
           listen 80;
           server_name get-this-from-email;
+      
+          # Define a DNS resolver (e.g., Google's public DNS servers)
+          resolver 8.8.8.8 8.8.4.4 valid=300s;
+          resolver_timeout 5s;
+      
           location /api1 {
               proxy_pass http://api1.example.com;
               # set headers
+      
+              # Enable SSL proxying
+              proxy_ssl_server_name on;
           }
           
           # API no 2 the same way
@@ -218,6 +227,9 @@ Create the same API Gateway using Nginx instead of Apache. Follow the same steps
               rewrite ^/weather(.*)$ /weather$1?appid=7c42463f9762df30e2f0f703a1115cd8 break;
               proxy_pass https://api.openweathermap.org/data/2.5;
              # set headers
+      
+             # Enable SSL proxying
+             proxy_ssl_server_name on;
           }
       }
       ```
@@ -229,6 +241,8 @@ Create the same API Gateway using Nginx instead of Apache. Follow the same steps
     - `http://your-server-ip/api1`
     - `http://your-server-ip/api2`
     - `http://your-server-ip/weather?q=Somero`
+
+7. Error logs are read with this command: `sudo tail -f /var/log/nginx/error.log`
 
 ## Assignment 3: API Gateway with Node.js
 
