@@ -86,7 +86,9 @@ Generate an automatic response to a YouTube comment. Try different prompts to se
 
 ## Assignment 2: Image generator
 
-Generate a YouTube thumbnail image using the OpenAI API. You can use the same starter code as in the previous assignment. Use the OpenAI API to generate the image. [Here is an example](https://github.com/ilkkamtk/AI-BE/blob/main/src/middlewares.ts#L49) of using image generation and saving the result to a file.
+Generate a YouTube thumbnail image using the OpenAI API. The thumbnail should be related to a video about a specific topic. For example, if the video is about space, the thumbnail could include stars, planets, or astronauts and possibly have splash text like "Explore the Universe!" You could also try to generate an image edit or variation of an existing image.
+
+You can use the same starter code as in the previous assignment. Use the OpenAI API to generate the image. [Here is an example](https://github.com/ilkkamtk/AI-BE/blob/main/src/middlewares.ts#L49) of using image generation and saving the result to a file.
 - [Create image](https://platform.openai.com/docs/api-reference/images/create)
 - [Create image edit](https://platform.openai.com/docs/api-reference/images/createEdit)
 - [Create image variation](https://platform.openai.com/docs/api-reference/images/createVariation)
