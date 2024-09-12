@@ -298,7 +298,7 @@ You can use [this repo](https://github.com/ilkkamtk/ts_mongo_starter) as a start
         target: 'https://dummy.example.com/api3',
          // Add additional proxy options for this service
          on: {
-           onProxyReq: (proxyReq: ClientRequest) => {
+           proxyReq: (proxyReq: ClientRequest) => {
            // Append apikey query parameter to the target URL
            proxyReq.path += '&appid=your_api_key';
           },
