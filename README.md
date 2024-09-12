@@ -14,7 +14,7 @@
 
 ### Week 4
 - [Microsevices](week4/microservices.md)
-- AI
+- [AI](week4/ai.md)
 
 ### Week 5
 - [Microfrontends](week5/microfrontends.md)
