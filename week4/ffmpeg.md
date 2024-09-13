@@ -17,3 +17,4 @@ Download video to /var/www/html:
 cd /var/www/html/
 sudo wget https://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_1080p_h264.mov
 ```
+Test with e.g. VLC: `http://10.x.x.x/big_buck_bunny_1080p_h264.mov`
