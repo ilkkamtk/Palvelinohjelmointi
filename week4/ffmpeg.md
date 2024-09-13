@@ -11,3 +11,9 @@ Windows, the BSDs, Solaris, etc. under a wide variety of build environments, mac
 - [Using FFmpeg with Node](https://www.npmjs.com/package/fluent-ffmpeg)
     - [Example](https://github.com/ilkkamtk/hybrid-upload-server/blob/main/src/utils/getVideoThumbnail.ts)
 
+
+Download video to /var/www/html:
+```shell
+cd /var/www/html/
+sudo wget https://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_1080p_h264.mov
+```
