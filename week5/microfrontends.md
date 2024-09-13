@@ -1,5 +1,7 @@
 # Microfrontends
 
+[Jaska-sedän video](https://www.youtube.com/watch?v=t-nchkL9yIg&t=176s)
+
 **Microfrontend Architecture** breaks a frontend into independent, manageable pieces that are developed and maintained by separate teams. This approach enhances scalability and reduces complexity but requires effective integration strategies.
 
 ## Integration patterns for Microfrontends
