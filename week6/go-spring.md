@@ -42,8 +42,8 @@ You can choose wether you want to do the assignment with Go or Java Spring Boot 
 * Use Docker for deploying your API to the cloud (Azure etc.)
 
 ### Evaluation
-1 = Step 1 done (one of the tutorials)
-3 = Step 2 done
-5 = Step 3 done
-0.5 extra for step 4
-1 extra for step 5
+* 1 = Step 1 done (one of the tutorials)
+* 3 = Step 2 done
+* 5 = Step 3 done
+* 0.5 extra for step 4
+* 1 extra for step 5
