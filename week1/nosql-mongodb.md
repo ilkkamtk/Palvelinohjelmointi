@@ -214,7 +214,7 @@
 ---
 
 ## Assignment 3
-* Select all cats from the `animals` collection and populate the `species` field to show also the species data. Use the following [stages](https://www.mongodb.com/docs/manual/reference/operator/aggregation-pipeline/):
+* Select all cats from the `animals` collection and populate the `species` field to show also the species data. Use the following [stages](https://www.mongodb.com/docs/atlas/atlas-stream-processing/stream-aggregation/):
    * Use `$lookup` to perform left outer join between the animals collection and the species collection. 
    * Populate `species` field with the data from `species` collection ($unwind).
    * Use `$match` stage to filter the documents to include only those where `species_info.species_name` is "Cat".
