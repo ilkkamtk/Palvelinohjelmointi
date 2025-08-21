@@ -144,7 +144,7 @@
 * [Perform CRUD operations](https://www.mongodb.com/docs/mongodb-shell/crud/)
 1. Select all documents from the `species` collection
 2. Select all documents from the `animals` collection
-* [Query and Projection Operators](https://www.mongodb.com/docs/manual/reference/operator/query/#query-and-projection-operators)
+* [Query and Projection Operators](https://www.mongodb.com/docs/manual/reference/mql/query-predicates/#std-label-query-projection-operators-top)
 * [Date](https://www.mongodb.com/docs/manual/reference/method/Date/#insert-and-return-isodate-objects)
 1. Select all animals born before 2020
 2. Select all animals born in 2023
