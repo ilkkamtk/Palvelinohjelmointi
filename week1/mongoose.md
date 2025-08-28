@@ -320,7 +320,7 @@ export default model<SomeType, SomeModel>('CollectionName', someSchema);
 
 ## Task 4
 
-* Add a static method to 'Animal' model to find all animals of certain species: `findBySpecies(species: string): Promise<Animal[]>`
+* Add a static method to 'Animal' model to find all animals of certain species by name: `findBySpecies(species: string): Promise<Animal[]>`
    * The endpoint should be `GET /animals/species/:species`
 * Add a static method to 'Species' model to find all species within a certain area specified by a geoJson polygon: `findByArea(polygon: Polygon): Promise<Species[]>` 
    * The endpoint should be `POST /species/area` and the body should contain the geoJson polygon in the following format:
