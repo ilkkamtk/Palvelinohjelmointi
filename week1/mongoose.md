@@ -301,6 +301,7 @@ try {
 
 ```typescript
 // in type definition file
+import {Model} from 'mongoose';
 
 type SomeModel = Model<SomeType> & {
   functionName(parameter: type): Promise<SomeType[]>;
