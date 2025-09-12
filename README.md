@@ -10,7 +10,7 @@
 ### Week 3
 - [MFA](week3/mfa.md)
 - [Passkey authentication](week3/passkey.md)
-- [Socket.io](week3/socket.md)
+- [Socket.io](week3/socket.md) (extra)
 
 ### Week 4
 - [Microsevices](week4/microservices.md)
