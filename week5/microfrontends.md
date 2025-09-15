@@ -149,6 +149,7 @@ Divide [this example app](https://users.metropolia.fi/~ilkkamtk/juutube/) into m
 
 - [Repository](https://github.com/ilkkamtk/juutube-react/) of the example app.
 - [Live demo](https://users.metropolia.fi/~ilkkamtk/juutube/)
+- [Module Federation plugin](https://github.com/originjs/vite-plugin-federation)
 
 ### Starter repositories
 - https://github.com/ilkkamtk/host-starter
