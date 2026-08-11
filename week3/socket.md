@@ -6,7 +6,7 @@ Add WebSockets to the previous MFA assignment to delete the need for login butto
 
 Create a new branch `websocket` to both server and client before starting the assignment.
 
-Yes, that's correct! With Socket.IO, you can achieve a seamless and interactive authentication flow where the server can notify the client in real time when the user is successfully authenticated after entering the 2FA code. Here's how this process could work:
+With Socket.IO, you can implement a seamless and interactive authentication flow where the server can notify the client in real time when the user is successfully authenticated after entering the 2FA code. Here's how this process could work:
 
 ### Real-Time 2FA Authentication Flow with Socket.IO
 

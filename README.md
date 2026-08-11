@@ -2,27 +2,28 @@
 
 ## TOC
 
-### Week 1 + 2 - MongoDB
+### Week MongoDB
 - [MongoDB Introduction](week1/nosql-mongodb.md)
 - [REST API + Mongoose](week1/mongoose.md)
 
 
-### Week 3
+### Multi factor authentication
 - [MFA](week3/mfa.md)
 - [Passkey authentication](week3/passkey.md)
-- [Socket.io](week3/socket.md) (extra)
 
-### Week 4
-- [Microsevices](week4/microservices.md)
+### MS + AI
+- [Microservices](week4/microservices.md)
 - [AI](week4/AI-api.md)
-- [FFMPEG](week4/ffmpeg.md) (extra)
 
-### Week 5
-- [Microfrontends](week5/microfrontends.md)
 
-### Week 6 - 8
+
+### Ongoing
 - [Go / Java Spring Boot assignment](week6/go-spring.md)
 
+### Extra
+- [Micro frontends](week5/microfrontends.md)
+- [Socket.io](week3/socket.md)
+- [FFMPEG](week4/ffmpeg.md)
 
 
 
