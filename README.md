@@ -2,12 +2,12 @@
 
 ## TOC
 
-### Week MongoDB
+### MongoDB
 - [MongoDB Introduction](week1/nosql-mongodb.md)
 - [REST API + Mongoose](week1/mongoose.md)
 
 
-### Multi factor authentication
+### Multifactor authentication
 - [MFA](week3/mfa.md)
 - [Passkey authentication](week3/passkey.md)
 
