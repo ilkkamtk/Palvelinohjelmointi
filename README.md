@@ -2,6 +2,10 @@
 
 ## TOC
 
+### Agentic coding
+- [Agent harnesses in VSCode](https://code.visualstudio.com/docs/agents/concepts/agent-harnesses)
+
+
 ### MongoDB
 - [MongoDB Introduction](week1/nosql-mongodb.md)
 - [REST API + Mongoose](week1/mongoose.md)
