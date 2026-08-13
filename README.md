@@ -2,6 +2,10 @@
 
 ## TOC
 
+
+### Ongoing
+- [Go / Java Spring Boot assignment](week6/go-spring.md)
+
 ### Agentic coding
 - [Agent harnesses in VSCode](https://code.visualstudio.com/docs/agents/concepts/agent-harnesses)
 
@@ -19,10 +23,6 @@
 - [Microservices](week4/microservices.md)
 - [AI](week4/AI-api.md)
 
-
-
-### Ongoing
-- [Go / Java Spring Boot assignment](week6/go-spring.md)
 
 ### Extra
 - [Micro frontends](week5/microfrontends.md)
