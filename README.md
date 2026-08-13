@@ -3,7 +3,7 @@
 ## TOC
 
 
-### Ongoing
+### Self Study
 - [Go / Java Spring Boot assignment](week6/go-spring.md)
 
 ### Agentic coding
