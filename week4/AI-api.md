@@ -144,7 +144,7 @@ Generate a response to a YouTube comment. Try different prompts and observe how 
 - The course exercise may still use the [Chat Completions API](https://platform.openai.com/docs/api-reference/chat/create) as a simple or compatibility-focused example. In newer OpenAI applications, the [Responses API](https://platform.openai.com/docs/api-reference/responses) is often the newer general-purpose API.
 - Do not put an API key in frontend JavaScript. Keep the key and the API call on the server side.
 - If you use `OPENAI_API_URL` from the course material, treat it as a **course-specific proxy URL**, not as a general requirement of the OpenAI API.
-  - Example: instead of `https://api.openai.com/v1/chat/completions`, use `process.env.OPENAI_API_URL + '/v1/chat/completions'`
+  - Example: instead of `https://api.openai.com/v1/chat/completions`, use `new URL('/v1/chat/completions', process.env.OPENAI_API_URL).toString()`
   - The value for `OPENAI_API_URL` is in Oma/assignments.
 - Use Postman for testing.
 - Before displaying or publishing generated content, think about moderation, safety, and whether the response is appropriate for the user and the context.
