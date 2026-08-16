@@ -1,7 +1,5 @@
 # AI APIs
 
-> **Note:** AI model names, APIs, capabilities, prices, and limits change frequently. This lecture explains general concepts, but you should always check the current provider documentation before building an application.
-
 ## ChatGPT, Gemini and others, what are they
 
 ### AI applications, models, APIs, and platforms
