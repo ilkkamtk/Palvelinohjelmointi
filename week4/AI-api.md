@@ -17,20 +17,21 @@ coherent, context-aware text based on input prompts.
 
 ### ChatGPT (OpenAI)
 
-ChatGPT is part of OpenAI's series of models (GPT-2, GPT-3, GPT-4, and GPT-4o). The latest versions include advanced reasoning capabilities and significantly improved performance across diverse tasks including conversation, creative writing, and programming assistance. ChatGPT continues to lead in accuracy and adaptability, with enhanced support for multimodal inputs (text, images, audio, and video). It remains widely used for its versatility and continuous improvements in understanding complex queries.
+ChatGPT is powered by OpenAI's latest GPT-5.6 series of models, released in July 2026. The GPT-5.6 lineup includes three specialized variants: **Sol** (flagship model excelling in complex reasoning, coding, and science), **Terra** (balanced for broader use and cost efficiency), and **Luna** (optimized for speed and affordability). These models represent a significant leap in intelligence and efficiency, with Sol being 54% more token-efficient for coding work. GPT-5.6 powers ChatGPT across all user tiers (Plus, Pro, Free, and Go), continuing OpenAI's legacy of advancing natural language understanding and generation.
 
 ### Gemini (Google's LLM)
 
-Google's Gemini (part of Vertex AI) is an evolution of its previous language models (PaLM). The Gemini family has expanded significantly, with Gemini Ultra, Pro, and Nano variants offering different performance and efficiency levels. Gemini excels in multimodal reasoning and is native to Google's ecosystem, providing strong integration with services like Google Workspace. It offers capabilities comparable to or exceeding ChatGPT in various benchmarks, with particular strength in reasoning over visual and textual content simultaneously.
+Google's Gemini (part of Vertex AI) continues to evolve as a multimodal powerhouse. The Gemini family offers multiple variants optimized for different performance and cost requirements, including Gemini Ultra, Pro, and Nano. As of autumn 2026, Gemini maintains strong capabilities in multimodal reasoning, processing text, images, audio, and video simultaneously. It's deeply integrated with Google's ecosystem, offering seamless integration with Google Workspace and Google Cloud services.
 
 ### Differences
 
-ChatGPT (powered by GPT-4o and later models) and Gemini both use transformer architecture, but they have evolved with different strengths. ChatGPT emphasizes conversational fluidity and reasoning, while Gemini is specifically optimized for seamless multimodal interactions across text, images, audio, and video. Both now support multimodal capabilities, though they differ in their underlying training data and optimization priorities.
+As of autumn 2026, both ChatGPT (GPT-5.6) and Gemini represent state-of-the-art multimodal language models with advanced reasoning capabilities:
 
-Key differences include:
-- **Integration**: ChatGPT integrates well with OpenAI's ecosystem and third-party services, while Gemini is deeply integrated with Google services.
-- **Reasoning**: Both have advanced reasoning capabilities, but GPT-4o focuses on extended step-by-step reasoning, while Gemini emphasizes cross-modal understanding.
-- **Availability**: ChatGPT is available through various channels (web, API, plugins), while Gemini is accessible through Google Cloud, the web interface, and integrated Google products.
+- **Latest Models**: ChatGPT uses GPT-5.6 (with Sol, Terra, Luna variants), while Gemini offers its own specialized variants. Both represent the cutting edge of LLM technology.
+- **Specialization**: GPT-5.6 Sol is particularly optimized for complex reasoning and coding, while Gemini is designed for seamless cross-modal understanding and integration within Google's ecosystem.
+- **Integration**: ChatGPT integrates well with OpenAI's ecosystem and third-party services, while Gemini is deeply integrated with Google services and Google Cloud.
+- **Availability**: ChatGPT is accessible through various channels (web, API, plugins) with tiered access based on subscription level, while Gemini is accessible through Google Cloud, the web interface, and integrated Google products.
+- **Efficiency**: GPT-5.6 Sol demonstrates exceptional token efficiency and improved performance-to-cost ratios compared to earlier generations.
 
 ### Other LLMs
 
