@@ -7,7 +7,7 @@
 - [Go / Java Spring Boot assignment](week6/go-spring.md)
 
 ### Agentic coding
-- [Agent harnesses in VSCode](https://code.visualstudio.com/docs/agents/concepts/agent-harnesses)
+- [Agentic coding in VSCode](https://code.visualstudio.com/docs/agents/agents-tutorial)
 
 
 ### MongoDB
